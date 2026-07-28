@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contacto | Rescate Voluntario Chascomús</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">
+            <img src="img/logo2.jpg" alt="Logo Rescate Voluntario Chascomús">
+        </a>
+
+        <button class="btn-hamburguesa" aria-label="Abrir menú de navegación" aria-expanded="false"
+            aria-controls="nav-principal">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-principal" id="nav-principal">
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="ayudar.html">Como ayudar</a></li>
+                <li><a href="historias.html">Adoptados</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <a href="#adopcion" class="btn-accion btn-accion--desktop" data-abrir-modal="adopcion">Quiero adoptar</a>
+    </header>
+
+    <main class="pagina-ayudar">
+
+        <section class="ayudar-intro ayudar-intro--compacta">
+            <p class="ayudar-intro__eyebrow">Estamos para ayudarte</p>
+
+            <h1 class="ayudar-intro__titulo"><span class="resaltado">Contacto</span></h1>
+            <p class="ayudar-intro__texto">¿Tenés dudas, querés donar insumos, ser tránsito o simplemente saludarnos?
+                Escribinos y te respondemos a la brevedad.</p>
+        </section>
+
+        <section class="formulario-contacto" id="contacto">
+
+            <div class="contacto__redes">
+                <a href="https://instagram.com/rescatevoluntario.ch" target="_blank" rel="noopener noreferrer"
+                    class="contacto__red">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                    </svg>
+                    <span>@rescatevoluntario.ch</span>
+                </a>
+                <a href="https://facebook.com/rescatevoluntario.ch" target="_blank" rel="noopener noreferrer"
+                    class="contacto__red">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <path d="M15 3h-2a5 5 0 0 0-5 5v3H6v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                    <span>@rescatevoluntario.ch</span>
+                </a>
+            </div>
+
+            <form class="form-contacto" id="formulario-contacto" novalidate>
+                <div class="campo-texto">
+                    <label for="contacto-nombre">Nombre</label>
+                    <input type="text" id="contacto-nombre" name="Nombre" required>
+                </div>
+
+                <div class="campo-texto">
+                    <label for="contacto-email">Email</label>
+                    <input type="email" id="contacto-email" name="Email" required>
+                </div>
+
+                <div class="campo-texto">
+                    <label for="contacto-mensaje">Mensaje</label>
+                    <textarea id="contacto-mensaje" name="Mensaje" required></textarea>
+                </div>
+
+                <p class="form-error" id="contacto-error" role="alert"></p>
+
+                <button type="submit" class="btn-accion" id="contacto-enviar">Enviar mensaje</button>
+            </form>
+
+            <div class="contacto__confirmacion" id="contacto-confirmacion">
+                <p>¡Gracias por escribirnos! Te vamos a responder a la brevedad.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>/*  MENU HAMGURGUESA */
+        const btnHamburguesa = document.querySelector('.btn-hamburguesa');
+        const navPrincipal = document.querySelector('.nav-principal');
+
+        btnHamburguesa.addEventListener('click', () => {
+            const abierto = navPrincipal.classList.toggle('nav-principal--abierto');
+            btnHamburguesa.classList.toggle('btn-hamburguesa--activo');
+            btnHamburguesa.setAttribute('aria-expanded', abierto);
+        });
+
+        document.querySelectorAll('.nav-principal a').forEach(link => {
+            link.addEventListener('click', () => {
+                navPrincipal.classList.remove('nav-principal--abierto');
+                btnHamburguesa.classList.remove('btn-hamburguesa--activo');
+                btnHamburguesa.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <script>/* Formulario de contacto */
+    const formularioContacto = document.getElementById('formulario-contacto');
+    const contactoError = document.getElementById('contacto-error');
+    const contactoConfirmacion = document.getElementById('contacto-confirmacion');
+
+    formularioContacto.addEventListener('submit', (evento) => {
+        evento.preventDefault();
+
+        if (!formularioContacto.checkValidity()) {
+            contactoError.textContent = 'Por favor completá todos los campos.';
+            formularioContacto.reportValidity();
+            return;
+        }
+
+        contactoError.textContent = '';
+        formularioContacto.style.display = 'none';
+        contactoConfirmacion.classList.add('contacto__confirmacion--visible');
+    });
+</script>
+
+    <footer class="footer">
+        <div class="footer__contenido">
+            <div class="footer__marca">
+                <img src="img/logo3.jpg" alt="Logo Rescate Voluntario Chascomús" class="footer__logo">
+                <p>Sumate a ser parte de rescate voluntario y ayudar a nuestros amigos a salir adelante o encontrar un
+                    hogar</p>
+            </div>
+
+            <div class="footer__redes">
+                <h3>Seguinos en nuestras redes</h3>
+                <a href="https://instagram.com/rescatevoluntario.ch" target="_blank" rel="noopener noreferrer"
+                    class="footer__red">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                    </svg>
+                    <span>@rescatevoluntario.ch</span>
+                </a>
+                <a href="https://facebook.com/rescatevoluntario.ch" target="_blank" rel="noopener noreferrer"
+                    class="footer__red">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <path d="M15 3h-2a5 5 0 0 0-5 5v3H6v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                    <span>@rescatevoluntario.ch</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer__legal">
+            <p>&copy; 2026 Rescate Voluntario Chascomús.</p>
+        </div>
+    </footer>
+
+    <div class="modal-adopcion" id="modal-adopcion" aria-hidden="true">
+        <div class="modal-adopcion__fondo" data-cerrar-modal></div>
+        <div class="modal-adopcion__contenido" role="dialog" aria-modal="true" aria-labelledby="modal-adopcion-titulo">
+
+            <button type="button" class="modal-adopcion__cerrar" data-cerrar-modal aria-label="Cerrar formulario">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+
+            <div id="vista-formulario">
+                <div class="form-header">
+                    <div class="form-header__logo">
+                        <img src="img/logo2.jpg" alt="Logo Rescate Voluntario Chascomús">
+                    </div>
+                    <h2 id="modal-adopcion-titulo">Cuestionario de pre-adopción responsable</h2>
+                    <p>Completá tus datos para que podamos conocerte mejor</p>
+                </div>
+
+                <div class="form-progreso">
+                    <div class="form-dot form-dot--activo" data-dot="0"></div>
+                    <div class="form-dot" data-dot="1"></div>
+                    <div class="form-dot" data-dot="2"></div>
+                </div>
+
+                <form id="formulario" novalidate>
+
+                    <div class="form-paso form-paso--activo" data-paso="0">
+                        <h3>Tus datos</h3>
+
+                        <div class="campo">
+                            <label for="nombre">Nombre y apellido</label>
+                            <input type="text" id="nombre" name="Nombre y apellido" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="direccion">Dirección exacta <span class="ayuda">(con referencias y
+                                    localidad)</span></label>
+                            <input type="text" id="direccion" name="Dirección" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="telefono">Teléfono de contacto</label>
+                            <input type="tel" id="telefono" name="Teléfono" required>
+                        </div>
+                    </div>
+
+                    <div class="form-paso" data-paso="1">
+                        <h3>Conocé el hogar</h3>
+
+                        <div class="campo">
+                            <label for="motivacion">¿Cuál es tu principal motivación para adoptar en este
+                                momento?</label>
+                            <textarea id="motivacion" name="Motivación" required></textarea>
+                        </div>
+
+                        <fieldset class="campo">
+                            <legend>¿El lugar tiene patio cerrado y seguro, sin dar directamente a la calle?</legend>
+                            <div class="opciones">
+                                <label class="opcion-chip"><input type="radio" name="Patio cerrado y seguro" value="Sí"
+                                        required><span>Sí</span></label>
+                                <label class="opcion-chip"><input type="radio" name="Patio cerrado y seguro"
+                                        value="No"><span>No</span></label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="campo">
+                            <legend>¿Vivís en casa o departamento?</legend>
+                            <div class="opciones">
+                                <label class="opcion-chip"><input type="radio" name="Tipo de vivienda" value="Casa"
+                                        required><span>Casa</span></label>
+                                <label class="opcion-chip"><input type="radio" name="Tipo de vivienda"
+                                        value="Departamento"><span>Departamento</span></label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="campo">
+                            <legend>¿Es propiedad propia o alquilada?</legend>
+                            <div class="opciones">
+                                <label class="opcion-chip"><input type="radio" name="Propiedad" value="Propia"
+                                        required><span>Propia</span></label>
+                                <label class="opcion-chip"><input type="radio" name="Propiedad"
+                                        value="Alquilada"><span>Alquilada</span></label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="campo">
+                            <legend>¿Tenés más animales en el hogar?</legend>
+                            <div class="opciones">
+                                <label class="opcion-chip"><input type="radio" name="Más animales en el hogar"
+                                        value="Sí" required><span>Sí</span></label>
+                                <label class="opcion-chip"><input type="radio" name="Más animales en el hogar"
+                                        value="No"><span>No</span></label>
+                            </div>
+                            <div class="subcampo" id="detalle-animales">
+                                <input type="text" name="Cantidad y estado de los animales"
+                                    placeholder="¿Cuántos, y están castrados y vacunados?">
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="campo">
+                            <legend>¿Hubo algún animal enfermo en el hogar?</legend>
+                            <div class="opciones">
+                                <label class="opcion-chip"><input type="radio" name="Animal enfermo previamente"
+                                        value="Sí" required><span>Sí</span></label>
+                                <label class="opcion-chip"><input type="radio" name="Animal enfermo previamente"
+                                        value="No"><span>No</span></label>
+                            </div>
+                            <div class="subcampo" id="detalle-enfermo">
+                                <input type="text" name="Hace cuánto" placeholder="¿Hace cuánto?">
+                            </div>
+                        </fieldset>
+
+                        <div class="campo">
+                            <label for="quien-vive">¿Con quién vivirá el animal? ¿Pasará mayormente acompañado?</label>
+                            <input type="text" id="quien-vive" name="Con quién vivirá" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="quien-viaje">¿Con quién quedará en caso de viaje u otro motivo
+                                particular?</label>
+                            <input type="text" id="quien-viaje" name="Con quién queda en viajes" required>
+                        </div>
+                    </div>
+
+                    <div class="form-paso" data-paso="2">
+                        <h3>Compromisos y cuidado especial</h3>
+                        <p style="color:var(--color-texto-suave); margin-top:calc(var(--espacio-xs) * -1);">En caso de
+                            adoptar un
+                            cachorro, te comprometés a:</p>
+
+                        <label class="compromiso">
+                            <input type="checkbox" name="compromiso" required>
+                            <p>Realizar el plan sanitario completo (vacunas y desparasitación).</p>
+                        </label>
+
+                        <label class="compromiso">
+                            <input type="checkbox" name="compromiso" required>
+                            <p>Castrarlo a los 6 meses de vida, obligatoriamente.</p>
+                        </label>
+
+                        <label class="compromiso">
+                            <input type="checkbox" name="compromiso" required>
+                            <p>Permitir un seguimiento periódico por parte de la organización.</p>
+                        </label>
+                    </div>
+
+                    <p class="form-error" id="form-error" role="alert"></p>
+
+                    <div class="form-botones">
+                        <button type="button" class="btn-volver" id="btn-volver">Atrás</button>
+                        <button type="button" class="btn-siguiente" id="btn-siguiente">Siguiente</button>
+                        <button type="submit" class="btn-enviar" id="btn-enviar" style="display:none;"
+                            disabled>Enviar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="form-confirmacion" id="vista-confirmacion">
+                <div class="confirmacion-icono">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="7" cy="8" r="2.6" />
+                        <circle cx="12" cy="5.5" r="2.6" />
+                        <circle cx="17" cy="8" r="2.6" />
+                        <path
+                            d="M12 13c-3.3 0-6.5 1.9-6.5 4.4C5.5 19.4 7.6 20 12 20s6.5-.6 6.5-2.6C18.5 14.9 15.3 13 12 13Z" />
+                    </svg>
+                </div>
+                <h3>Formulario completado</h3>
+                <p>Gracias por enviar el formulario. Pronto nos estaremos comunicando con vos.</p>
+                <button type="button" class="btn-accion" id="btn-volver-inicio">Volver al inicio</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="formulario.js"></script>
+
+</body>
+
+</html>

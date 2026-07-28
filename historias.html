@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Historias | Rescate Voluntario Chascomús</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">
+            <img src="img/logo2.jpg" alt="Logo Rescate Voluntario Chascomús">
+        </a>
+
+        <button class="btn-hamburguesa" aria-label="Abrir menú de navegación" aria-expanded="false"
+            aria-controls="nav-principal">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-principal" id="nav-principal">
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="ayudar.html">Como ayudar</a></li>
+                <li><a href="historias.html">Adoptados</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <a href="#adopcion" class="btn-accion btn-accion--desktop" data-abrir-modal="adopcion">Quiero adoptar</a>
+    </header>
+
+    <main class="pagina-ayudar">
+
+        <section class="ayudar-intro ayudar-intro--compacta">
+            <p class="ayudar-intro__eyebrow">Historias que transforman vidas</p>
+            <h1 class="ayudar-intro__titulo"><span class="resaltado">Adoptados</span></h1>
+            <p class="ayudar-intro__texto">Cada uno de ellos llegó de una situación distinta, pero todos tienen algo en
+                común: alguien no miró para otro lado. Historias para concoer el trabajo que se consigue gracias al voluntariado y al trabajo en equipo. Como ellos tres, hay miles casos que siguen apareciendo dia tras dia.  </p>
+        </section>
+
+        <section class="historias__grid">
+
+            <button type="button" class="historia-tarjeta" data-abrir-historia="rio">
+                <img class="historia-tarjeta__imagen" src="img/RIO/RioPrincipal.webp" alt="Rio hoy, en un parque">
+                <div class="historia-tarjeta__cuerpo">
+                    <p class="historia-tarjeta__etiqueta historia-tarjeta__etiqueta--adoptado">Adoptado</p>
+                    <h2 class="historia-tarjeta__nombre">Rio</h2>
+                    <p class="historia-tarjeta__teaser">Lo encontraron sin poder caminar, a metros de no contarla.</p>
+                </div>
+            </button>
+
+
+            <button type="button" class="historia-tarjeta" data-abrir-historia="zoe">
+                <img class="historia-tarjeta__imagen" src="img/zoe/zoePrincipal.webp"
+                    alt="Zoe hoy, en brazos de su familia">
+                <div class="historia-tarjeta__cuerpo">
+                    <p class="historia-tarjeta__etiqueta historia-tarjeta__etiqueta--adoptado">Adoptada</p>
+                    <h2 class="historia-tarjeta__nombre">Zoe</h2>
+                    <p class="historia-tarjeta__teaser">Llegó con cáncer en su orejita. Hoy come y duerme nomás.</p>
+                </div>
+            </button>
+
+            <button type="button" class="historia-tarjeta" data-abrir-historia="juancito">
+                <img class="historia-tarjeta__imagen" src="img/juancito/juancitoPrincpal.webp"
+                    alt="Juancito hoy, con su familia">
+                <div class="historia-tarjeta__cuerpo">
+                    <p class="historia-tarjeta__etiqueta historia-tarjeta__etiqueta--adoptado">Adoptado</p>
+                    <h2 class="historia-tarjeta__nombre">Juancito</h2>
+                    <p class="historia-tarjeta__teaser">Se crió a mamadera. Hoy tiene una familia para siempre.</p>
+                </div>
+            </button>
+
+        </section>
+
+    </main>
+
+    <script>/*  MENU HAMGURGUESA */
+        const btnHamburguesa = document.querySelector('.btn-hamburguesa');
+        const navPrincipal = document.querySelector('.nav-principal');
+
+        btnHamburguesa.addEventListener('click', () => {
+            const abierto = navPrincipal.classList.toggle('nav-principal--abierto');
+            btnHamburguesa.classList.toggle('btn-hamburguesa--activo');
+            btnHamburguesa.setAttribute('aria-expanded', abierto);
+        });
+
+        document.querySelectorAll('.nav-principal a').forEach(link => {
+            link.addEventListener('click', () => {
+                navPrincipal.classList.remove('nav-principal--abierto');
+                btnHamburguesa.classList.remove('btn-hamburguesa--activo');
+                btnHamburguesa.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="footer__contenido">
+            <div class="footer__marca">
+                <img src="img/logo3.jpg" alt="Logo Rescate Voluntario Chascomús" class="footer__logo">
+                <p>Sumate a ser parte de rescate voluntario y ayudar a nuestros amigos a salir adelante o encontrar un
+                    hogar</p>
+            </div>
+
+            <div class="footer__redes">
+                <h3>Seguinos en nuestras redes</h3>
+                <a href="https://instagram.com/rescatevoluntario.ch" target="_blank" rel="noopener noreferrer"
+                    class="footer__red">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                    </svg>
+                    <span>@rescatevoluntario.ch</span>
+                </a>
+                <a href="https://facebook.com/rescatevoluntario.ch" target="_blank" rel="noopener noreferrer"
+                    class="footer__red">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <path d="M15 3h-2a5 5 0 0 0-5 5v3H6v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                    <span>@rescatevoluntario.ch</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer__legal">
+            <p>&copy; 2026 Rescate Voluntario Chascomús.</p>
+        </div>
+    </footer>
+
+    <!-- ============ MODAL: RIO ============ -->
+    <div class="modal-historia" id="modal-historia-rio" aria-hidden="true">
+        <div class="modal-historia__fondo"></div>
+        <div class="modal-historia__contenido" role="dialog" aria-modal="true" aria-labelledby="historia-rio-titulo">
+            <button type="button" class="modal-historia__cerrar" data-cerrar-historia aria-label="Cerrar historia">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+
+            <div class="historia-galeria">
+                <div class="historia-galeria__etiqueta">
+                    <img src="img/RIO/RioAntes.jpeg" alt="Rio cuando lo encontraron, muy débil">
+                    <span class="historia-galeria__marca">Cómo llegó</span>
+                </div>
+                <div class="historia-galeria__etiqueta">
+                    <img src="img/RIO/RIO1.webp" alt="Rio hoy, sano en un parque">
+                    <span class="historia-galeria__marca">Hoy</span>
+                </div>
+            </div>
+
+            <div class="historia-modal__cuerpo">
+                <p class="historia-modal__etiqueta historia-modal__etiqueta--adoptado">Adoptado</p>
+                <h2 class="historia-modal__nombre" id="historia-rio-titulo">Rio</h2>
+
+                <div class="historia-modal__bloque">
+                    <h3>Cómo llegó</h3>
+                    <p>Lo encontró una de nuestras voluntarias en la esquina de su casa, frente a la farmacia Pozzi, en
+                        Chascomús. Chorreaba sangre de las patas y no podía caminar. Si no lo veía ese día, hoy no lo
+                        estaríamos contando.</p>
+                </div>
+
+                <div class="historia-modal__bloque">
+                    <h3>Hoy</h3>
+                    <p>Pasó casi un año en tránsito, por varias casas distintas, hasta que lo adoptó la última persona
+                        que lo tuvo — hoy vive con ella y su familia en Buenos Aires.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- ============ MODAL: ZOE ============ -->
+    <div class="modal-historia" id="modal-historia-zoe" aria-hidden="true">
+        <div class="modal-historia__fondo"></div>
+        <div class="modal-historia__contenido" role="dialog" aria-modal="true" aria-labelledby="historia-zoe-titulo">
+            <button type="button" class="modal-historia__cerrar" data-cerrar-historia aria-label="Cerrar historia">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+
+            <div class="historia-galeria">
+                <div class="historia-galeria__etiqueta">
+                    <img src="img/zoe/antes.jpg" alt="Zoe recién rescatada, con su orejita lastimada">
+                    <span class="historia-galeria__marca">Cómo llegó</span>
+                </div>
+                <div class="historia-galeria__etiqueta">
+                    <img src="img/zoe/despues2.jpg" alt="Zoe hoy, ya recuperada">
+                    <span class="historia-galeria__marca">Hoy</span>
+                </div>
+            </div>
+
+            <div class="historia-modal__cuerpo">
+                <p class="historia-modal__etiqueta historia-modal__etiqueta--adoptado">Adoptada</p>
+                <h2 class="historia-modal__nombre" id="historia-zoe-titulo">Zoe</h2>
+
+                <div class="historia-modal__bloque">
+                    <h3>Cómo llegó</h3>
+                    <p>Zoe es una gatita que llegó con cáncer. Había que operarle la orejita, que estaba completamente
+                        podrida.</p>
+                </div>
+
+                <div class="historia-modal__bloque">
+                    <h3>Hoy</h3>
+                    <p>Está súper bien, con la medicación de por vida que necesita. La adoptó Cintia, una compañera de
+                        rescate. Come y duerme nomás 🧡</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MODAL: JUANCITO ============ -->
+    <div class="modal-historia" id="modal-historia-juancito" aria-hidden="true">
+        <div class="modal-historia__fondo"></div>
+        <div class="modal-historia__contenido" role="dialog" aria-modal="true"
+            aria-labelledby="historia-juancito-titulo">
+            <button type="button" class="modal-historia__cerrar" data-cerrar-historia aria-label="Cerrar historia">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+
+            <div class="historia-galeria">
+                <div class="historia-galeria__etiqueta">
+                    <img src="img/juancito/antes.jpeg" alt="Juancito recién nacido, alimentado a mamadera">
+                    <span class="historia-galeria__marca">Cómo llegó</span>
+                </div>
+                <div class="historia-galeria__etiqueta">
+                    <img src="img/juancito/despues.png" alt="Juancito hoy, con su familia">
+                    <span class="historia-galeria__marca">Hoy</span>
+                </div>
+            </div>
+
+            <div class="historia-modal__cuerpo">
+                <p class="historia-modal__etiqueta historia-modal__etiqueta--adoptado">Adoptado</p>
+                <h2 class="historia-modal__nombre" id="historia-juancito-titulo">Juancito</h2>
+
+                <div class="historia-modal__bloque">
+                    <h3>Cómo llegó</h3>
+                    <p>Juancito fue encontrado junto a su hermanito a pocos dias de nacer. Sandra los recibió en su casa y asumió el
+                        compromiso de darles la mamadera para que puedan salir adelante sin la presencia de la mamá. Su hermano no lo logró, pero Juancito salió adelante.</p>
+                </div>
+
+                <div class="historia-modal__bloque">
+                    <h3>Hoy</h3>
+                    <p>Fue dado en adopcion y hoy ya tiene una familia que lo mima.</p>
+                </div>
+
+                <!-- Cuando tengas el video, descomentá este bloque y reemplazá la ruta -->
+                <!--
+      <div class="historia-video">
+        <video controls poster="img/historias/juancito-familia.png">
+          <source src="img/historias/juancito-video.mp4" type="video/mp4">
+        </video>
+      </div>
+      -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MODAL: ADOPCIÓN (compartido con el resto del sitio) ============ -->
+    <div class="modal-adopcion" id="modal-adopcion" aria-hidden="true">
+        <div class="modal-adopcion__fondo" data-cerrar-modal></div>
+        <div class="modal-adopcion__contenido" role="dialog" aria-modal="true" aria-labelledby="modal-adopcion-titulo">
+
+            <button type="button" class="modal-adopcion__cerrar" data-cerrar-modal aria-label="Cerrar formulario">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+
+            <div id="vista-formulario">
+                <div class="form-header">
+                    <div class="form-header__logo">
+                        <img src="img/logo2.jpg" alt="Logo Rescate Voluntario Chascomús">
+                    </div>
+                    <h2 id="modal-adopcion-titulo">Cuestionario de pre-adopción responsable</h2>
+                    <p>Completá tus datos para que podamos conocerte mejor</p>
+                </div>
+
+                <div class="form-progreso">
+                    <div class="form-dot form-dot--activo" data-dot="0"></div>
+                    <div class="form-dot" data-dot="1"></div>
+                    <div class="form-dot" data-dot="2"></div>
+                </div>
+
+                <form id="formulario" novalidate>
+
+                    <div class="form-paso form-paso--activo" data-paso="0">
+                        <h3>Tus datos</h3>
+
+                        <div class="campo">
+                            <label for="nombre">Nombre y apellido</label>
+                            <input type="text" id="nombre" name="Nombre y apellido" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="direccion">Dirección exacta <span class="ayuda">(con referencias y
+                                    localidad)</span></label>
+                            <input type="text" id="direccion" name="Dirección" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="telefono">Teléfono de contacto</label>
+                            <input type="tel" id="telefono" name="Teléfono" required>
+                        </div>
+                    </div>
+
+                    <div class="form-paso" data-paso="1">
+                        <h3>Conocé el hogar</h3>
+
+                        <div class="campo">
+                            <label for="motivacion">¿Cuál es tu principal motivación para adoptar en este
+                                momento?</label>
+                            <textarea id="motivacion" name="Motivación" required></textarea>
+                        </div>
+
+                        <fieldset class="campo">
+                            <legend>¿El lugar tiene patio cerrado y seguro, sin dar directamente a la calle?</legend>
+                            <div class="opciones">
+                                <label class="opcion-chip"><input type="radio" name="Patio cerrado y seguro" value="Sí"
+                                        required><span>Sí</span></label>
+                                <label class="opcion-chip"><input type="radio" name="Patio cerrado y seguro"
+                                        value="No"><span>No</span></label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="campo">
+                            <legend>¿Vivís en casa o departamento?</legend>
+                            <div class="opciones">
+                                <label class="opcion-chip"><input type="radio" name="Tipo de vivienda" value="Casa"
+                                        required><span>Casa</span></label>
+                                <label class="opcion-chip"><input type="radio" name="Tipo de vivienda"
+                                        value="Departamento"><span>Departamento</span></label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="campo">
+                            <legend>¿Es propiedad propia o alquilada?</legend>
+                            <div class="opciones">
+                                <label class="opcion-chip"><input type="radio" name="Propiedad" value="Propia"
+                                        required><span>Propia</span></label>
+                                <label class="opcion-chip"><input type="radio" name="Propiedad"
+                                        value="Alquilada"><span>Alquilada</span></label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="campo">
+                            <legend>¿Tenés más animales en el hogar?</legend>
+                            <div class="opciones">
+                                <label class="opcion-chip"><input type="radio" name="Más animales en el hogar"
+                                        value="Sí" required><span>Sí</span></label>
+                                <label class="opcion-chip"><input type="radio" name="Más animales en el hogar"
+                                        value="No"><span>No</span></label>
+                            </div>
+                            <div class="subcampo" id="detalle-animales">
+                                <input type="text" name="Cantidad y estado de los animales"
+                                    placeholder="¿Cuántos, y están castrados y vacunados?">
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="campo">
+                            <legend>¿Hubo algún animal enfermo en el hogar?</legend>
+                            <div class="opciones">
+                                <label class="opcion-chip"><input type="radio" name="Animal enfermo previamente"
+                                        value="Sí" required><span>Sí</span></label>
+                                <label class="opcion-chip"><input type="radio" name="Animal enfermo previamente"
+                                        value="No"><span>No</span></label>
+                            </div>
+                            <div class="subcampo" id="detalle-enfermo">
+                                <input type="text" name="Hace cuánto" placeholder="¿Hace cuánto?">
+                            </div>
+                        </fieldset>
+
+                        <div class="campo">
+                            <label for="quien-vive">¿Con quién vivirá el animal? ¿Pasará mayormente acompañado?</label>
+                            <input type="text" id="quien-vive" name="Con quién vivirá" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="quien-viaje">¿Con quién quedará en caso de viaje u otro motivo
+                                particular?</label>
+                            <input type="text" id="quien-viaje" name="Con quién queda en viajes" required>
+                        </div>
+                    </div>
+
+                    <div class="form-paso" data-paso="2">
+                        <h3>Compromisos y cuidado especial</h3>
+                        <p style="color:var(--color-texto-suave); margin-top:calc(var(--espacio-xs) * -1);">En caso de
+                            adoptar un
+                            cachorro, te comprometés a:</p>
+
+                        <label class="compromiso">
+                            <input type="checkbox" name="compromiso" required>
+                            <p>Realizar el plan sanitario completo (vacunas y desparasitación).</p>
+                        </label>
+
+                        <label class="compromiso">
+                            <input type="checkbox" name="compromiso" required>
+                            <p>Castrarlo a los 6 meses de vida, obligatoriamente.</p>
+                        </label>
+
+                        <label class="compromiso">
+                            <input type="checkbox" name="compromiso" required>
+                            <p>Permitir un seguimiento periódico por parte de la organización.</p>
+                        </label>
+                    </div>
+
+                    <p class="form-error" id="form-error" role="alert"></p>
+
+                    <div class="form-botones">
+                        <button type="button" class="btn-volver" id="btn-volver">Atrás</button>
+                        <button type="button" class="btn-siguiente" id="btn-siguiente">Siguiente</button>
+                        <button type="submit" class="btn-enviar" id="btn-enviar" style="display:none;"
+                            disabled>Enviar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="form-confirmacion" id="vista-confirmacion">
+                <div class="confirmacion-icono">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="7" cy="8" r="2.6" />
+                        <circle cx="12" cy="5.5" r="2.6" />
+                        <circle cx="17" cy="8" r="2.6" />
+                        <path
+                            d="M12 13c-3.3 0-6.5 1.9-6.5 4.4C5.5 19.4 7.6 20 12 20s6.5-.6 6.5-2.6C18.5 14.9 15.3 13 12 13Z" />
+                    </svg>
+                </div>
+                <h3>Formulario completado</h3>
+                <p>Gracias por enviar el formulario. Pronto nos estaremos comunicando con vos.</p>
+                <button type="button" class="btn-accion" id="btn-volver-inicio">Volver al inicio</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="formulario.js"></script>
+    <script src="historias.js"></script>
+
+</body>
+
+</html>
